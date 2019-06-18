@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Navbar,
   NavbarToggler,
@@ -11,6 +9,7 @@ import {
   NavLink,
   Collapse
 } from "shards-react";
+import './styles.css';
 
 
 import SignOutButton from '../SignOut';
@@ -72,8 +71,8 @@ class Navigation extends React.Component {
 }
 
 const NavigationAuth = (props) => (
-  <Navbar type="dark" theme="primary" expand="md">
-    <NavbarBrand href="#">Chicago Chat</NavbarBrand>
+  <Navbar type="dark" theme="dark" expand="md">
+    <Link to = {ROUTES.HOME}><NavbarBrand href="#">Chicago Chat</NavbarBrand></Link>
     <NavbarToggler onClick={props.toggleNavbar} />
 
     <Collapse open={props.collapseOpen} navbar>
@@ -96,18 +95,17 @@ const NavigationAuth = (props) => (
 )
 
 const NavigationNonAuth = (props) => (
-  <Navbar type="dark" theme="primary" expand="md">
+  <Navbar type="dark" theme="dark" expand="md">
 
-    <NavbarBrand href="#">Chicago Chat</NavbarBrand>
+  <Link to = {ROUTES.LANDING}><NavbarBrand href="#">Chicago Chat</NavbarBrand></Link>
     <NavbarToggler onClick={props.toggleNavbar} />
-
-    <Collapse open={props.collapseOpen} navbar>
+    <Collapse open= {props.collapseOpen} navbar>
       <Nav navbar>
         <NavItem>
-          <Link to={ROUTES.LANDING}><NavLink href="/">Landing</NavLink></Link>
+          <Link to= {ROUTES.LANDING}><NavLink href="/">Landing</NavLink></Link>
         </NavItem>
         <NavItem>
-          <Link to={ROUTES.SIGN_IN}><NavLink href="/signin">Sign In</NavLink></Link>
+          <Link to= {ROUTES.SIGN_IN}><NavLink href="/signin">Sign In</NavLink></Link>
         </NavItem>
       </Nav>
     </Collapse>

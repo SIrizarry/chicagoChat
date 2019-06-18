@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+import {Form, FormInput, FormGroup, Container, Row, Col, Button } from 'shards-react';
+import './styles.css';
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
@@ -9,10 +11,7 @@ import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
     <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
   </div>
 );
 
@@ -55,27 +54,45 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return(
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />  
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+      <Container className="signin-wrapper">
+        <Row>
+          <Col md="9" lg="9" className="signin-main"></Col>
+          <Col md="3" lg="3" className="signin-sidebar">
+            <h3>Sign In</h3>
+            <Form onSubmit={this.onSubmit}>
+              <FormGroup>
+                <label htmlFor="#email">Email</label>
+                <FormInput
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="Email Address"
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="#password">Password</label>
+                <FormInput
+                  id="email"
+                  name="password"
+                  value={password}
+                  onChange={this.onChange}
+                  type="password"
+                  placeholder="Password"
+                />  
+              </FormGroup>
+              <Button theme="success" disabled={isInvalid} type="submit">
+                Sign In
+              </Button>
+              <SignUpLink/>
+              <PasswordForgetLink />
 
-        {error && <p>{error.message}</p>}
-      </form>
+              {error && <p>{error.message}</p>}
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

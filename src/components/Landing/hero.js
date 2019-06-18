@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'shards-react';
 import { Link } from 'react-router-dom';
+import './styles.css';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -13,7 +14,10 @@ export const Subhead = (props) => (
 )
 
 export const CallToAction = (props) => (
-  <Link to = {ROUTES.SIGN_UP}><Button>Get Started</Button></Link>
+  <div className="button-wrapper">
+    <Link to = {ROUTES.SIGN_UP}><Button>Get Started</Button></Link>
+    <Link to = {ROUTES.SIGN_IN}><Button>Sign In</Button></Link>
+  </div>
 )
 
 const Hero = (props) => (

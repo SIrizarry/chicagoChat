@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+import {Form, FormInput, FormGroup, Container, Row, Col, Button } from 'shards-react';
+import './styles.css';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
     <SignUpForm />
-  </div>
 );
 
 const INITIAL_STATE = {
@@ -65,42 +64,66 @@ class SignUpFormBase extends Component {
     
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <Container className="signup-wrapper">
+        <Row>
+          <Col md="9" lg="9" className="signup-main"></Col>
+          <Col md="3" lg="3" className="signup-sidebar">
+            <h3>Get Started!</h3>
+            <Form onSubmit={this.onSubmit}>
+              <FormGroup>
+                <label htmlFor="#username">Username</label>
+                <FormInput
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="Full Name"
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="#email">Email</label>
+                <FormInput
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="Email Address"
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="#passwordOne">Password</label>
+                <FormInput
+                  id="passwordOne"
+                  name="passwordOne"
+                  value={passwordOne}
+                  onChange={this.onChange}
+                  type="password"
+                  placeholder="Password"
+                />
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="#passwordTwo">Confirm Password</label>
+                <FormInput
+                  id="passwordTwo"
+                  name="passwordTwo"
+                  value={passwordTwo}
+                  onChange={this.onChange}
+                  type="password"
+                  placeholder="Confirm Password"
+                />
+              </FormGroup>
+              <Button theme="success" disabled={isInvalid} type="submit">Sign Up</Button>
+              {error && <p>{error.message}</p>}
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }
+//Photo by Max Bender on Unsplash
 
 
 const SignUpLink = () => (
