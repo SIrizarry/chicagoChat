@@ -72,7 +72,7 @@ class Navigation extends React.Component {
 
 const NavigationAuth = (props) => (
   <Navbar type="dark" theme="dark" expand="md">
-    <Link to = {ROUTES.HOME}><NavbarBrand href="#">Chicago Chat</NavbarBrand></Link>
+    <Link to = {ROUTES.CHAT}><NavbarBrand href="#">Chicago Chat</NavbarBrand></Link>
     <NavbarToggler onClick={props.toggleNavbar} />
 
     <Collapse open={props.collapseOpen} navbar>
@@ -81,7 +81,7 @@ const NavigationAuth = (props) => (
           <Link to = {ROUTES.LANDING} ><NavLink href="/">Landing</NavLink></Link>
         </NavItem>
         <NavItem>
-          <Link to = {ROUTES.HOME}><NavLink href="/home">Chat</NavLink></Link>
+          <Link to = {ROUTES.CHAT}><NavLink href="/chat">Chat</NavLink></Link>
         </NavItem>
         <NavItem>
           <Link to = {ROUTES.ACCOUNT}><NavLink href="/account">Account</NavLink></Link>

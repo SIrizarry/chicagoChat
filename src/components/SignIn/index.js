@@ -33,9 +33,10 @@ class SignInFormBase extends Component {
 
     this.props.firebase
      .doSignInWithEmailAndPassword(email, password)
-     .then(() => {
+     .then((response) => {
+       console.log(response);
        this.setState({ ...INITIAL_STATE });
-       this.props.history.push(ROUTES.HOME);
+       this.props.history.push(ROUTES.CHAT);
      })
      .catch(error => {
        this.setState({ error })
@@ -74,7 +75,7 @@ class SignInFormBase extends Component {
               <FormGroup>
                 <label htmlFor="#password">Password</label>
                 <FormInput
-                  id="email"
+                  id="password"
                   name="password"
                   value={password}
                   onChange={this.onChange}

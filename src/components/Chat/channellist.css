@@ -1,0 +1,17 @@
+.channel-wrapper{
+  width:20%;
+  height:100vh;
+  display:inline-block;
+  position:relative;
+  z-index:1;
+  background-color: #3A405A;
+} 
+.channel-wrapper > ul li{
+  color:#CAE9FF;
+}
+.channel-wrapper > ul li:hover{
+  cursor:pointer;
+}
+.closed{
+  display:none;
+}

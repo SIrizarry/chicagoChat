@@ -1,0 +1,8 @@
+.message-wrapper{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 10%;
+  z-index:2;
+  background-color:#6C698D;
+}

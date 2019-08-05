@@ -21,7 +21,7 @@ const withAuthorization = condition => Component => {
     componentWillUnmount() {
       this.listener();
     }
-
+    
     render() {
       return (
         <AuthUserContext.Consumer>
